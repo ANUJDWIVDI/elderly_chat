@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Age Home Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Old Age Home Portal</h1>
+
+        <div class="login-form">
+            <h2>Login</h2>
+            <form action="/login" method="post">
+                <label for="old_age_home">Select Old Age Home:</label>
+                <select name="old_age_home" id="old_age_home">
+                    <option value="1">Home of Serenity</option>
+                    <option value="2">Golden Years Haven</option>
+                    <option value="3">Peaceful Meadows</option>
+                </select>
+
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <div class="portal">
+            <h2>AI Companion</h2>
+            <div class="chat-container">
+                <div class="chat-bubble">AI Companion: Hello there! How can I help you today?</div>
+                <div class="user-input">
+                    <input type="text" placeholder="Enter your message here">
+                    <button type="button">Send</button>
+                </div>
+            </div>
+
+            <div class="features">
+                <h3>Medication Reminder</h3>
+                <p>Never forget to take your medication again!</p>
+                <button type="button">View Medication Schedule</button>
+
+                <h3>Nearby Pharmacy</h3>
+                <p>Easily find the nearest pharmacy with their contact information.</p>
+                <button type="button">Find Nearby Pharmacy</button>
+
+                <h3>Emergency Contact</h3>
+                <p>Access emergency contact information quickly.</p>
+                <button type="button">View Emergency Contacts</button>
+
+                <h3>Leisure Time Scheduler</h3>
+                <p>Plan and schedule your leisure activities.</p>
+                <button type="button">Schedule Leisure Time Activities</button>
+
+                <h3>Kids and Grandkids Reminder</h3>
+                <p>Stay connected with your loved ones.</p>
+                <button type="button">Schedule Calls with Kids and Grandkids</button>
