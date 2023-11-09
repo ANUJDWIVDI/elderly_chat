@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <h1>Welcome to Your Dashboard</h1>
+    <h2>User Information:</h2>
+    <ul>
+        <li>Username: {{ user_data.username }}</li>
+        <li>Last Period Date: {{ user_data.last_period_date }}</li>
+        <li>Weight: {{ user_data.health_stats.weight }} kg</li>
+        <li>Height: {{ user_data.health_stats.height }} cm</li>
+        <li>Blood Pressure: {{ user_data.health_stats.blood_pressure }}</li>
+        <li>Heart Rate: {{ user_data.health_stats.heart_rate }} BPM</li>
+        <li>Body Temperature: {{ user_data.health_stats.body_temperature }} °C</li>
+        <li>Sleep Duration: {{ user_data.health_stats.sleep_duration_hours }} hours</li>
+        <li>Stress Level: {{ user_data.health_stats.stress_level }}</li>
+        <li>Exercise Minutes: {{ user_data.health_stats.exercise_minutes }} minutes</li>
+        <li>Water Intake: {{ user_data.health_stats.water_intake_ml }} ml</li>
+        <li>Caloric Intake: {{ user_data.health_stats.caloric_intake_kcal }} kcal</li>
+    </ul>
+    <a href="/visualize">Visualize Data</a>
+</body>
+</html>

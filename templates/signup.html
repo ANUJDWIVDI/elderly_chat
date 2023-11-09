@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign-up Page</title>
+</head>
+<body>
+    <h1>Sign-up</h1>
+    <form method="POST" action="/signup">
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" value="Amaira" required>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" value="password1" required>
+
+    <label for="last_period_date">Last Period Date:</label>
+    <input type="date" name="last_period_date" id="last_period_date" value="2023-11-05" required>
+
+    <label for="weight">Weight (kg):</label>
+    <input type="number" name="weight" id="weight" step="0.1" value="52.2" required>
+
+    <label for="height">Height (cm):</label>
+    <input type="number" name="height" id="height" value="169" required>
+
+    <label for="blood_pressure">Blood Pressure:</label>
+    <input type="text" name="blood_pressure" id="blood_pressure" value="113/70" required>
+
+    <label for="heart_rate">Heart Rate (bpm):</label>
+    <input type="number" name="heart_rate" id="heart_rate" value="71" required>
+
+    <label for="body_temperature">Body Temperature (°C):</label>
+    <input type="number" name="body_temperature" id="body_temperature" step="0.1" value="36.4" required>
+
+    <label for="sleep_duration_hours">Sleep Duration (hours):</label>
+    <input type="number" name="sleep_duration_hours" id="sleep_duration_hours" step="0.1" value="9" required>
+
+    <label for="stress_level">Stress Level:</label>
+    <input type="number" name="stress_level" id="stress_level" value="1" required>
+
+    <label for="exercise_minutes">Exercise Minutes:</label>
+    <input type="number" name="exercise_minutes" id="exercise_minutes" value="21" required>
+
+    <label for="water_intake_ml">Water Intake (ml):</label>
+    <input type="number" name="water_intake_ml" id="water_intake_ml" step="0.1" value="1061" required>
+
+    <label for="caloric_intake_kcal">Caloric Intake (kcal):</label>
+    <input type="number" name="caloric_intake_kcal" id="caloric_intake_kcal" value="1556" required>
+
+    <input type="submit" value="Sign Up">
+</form>
+
+</body>
+</html>
