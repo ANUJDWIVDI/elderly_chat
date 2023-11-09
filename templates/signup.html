@@ -1,79 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign-up Page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 40%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input:focus {
+            border-color: #ff758c;
+        }
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .form-group {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 15px;
+        }
+        .logo {
+            width: 100%;
+            max-width: 400px; /* Adjust the size as needed */
+            margin-top: 20px;
+        }
+    </style>
 </head>
-<body class="bg-dark">
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card bg-light">
-                    <div class="card-body">
-                        <h1 class="text-center text-dark">Sign-up</h1>
-                        <form method="POST" action="/signup">
-                            <div class="form-group">
-                                <label for="username">Username:</label>
-                                <input type="text" class="form-control" id="username" name="username" value="Amaira" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password:</label>
-                                <input type="password" class="form-control" id="password" name="password" value="password1" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="last_period_date">Last Period Date:</label>
-                                <input type="date" class="form-control" id="last_period_date" name="last_period_date" value="2023-11-05" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="weight">Weight (kg):</label>
-                                <input type="number" class="form-control" id="weight" name="weight" step="0.1" value="52.2" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="height">Height (cm):</label>
-                                <input type="number" class="form-control" id="height" name="height" value="169" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="blood_pressure">Blood Pressure:</label>
-                                <input type="text" class="form-control" id="blood_pressure" name="blood_pressure" value="113/70" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="heart_rate">Heart Rate (bpm):</label>
-                                <input type="number" class="form-control" id="heart_rate" name="heart_rate" value="71" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="body_temperature">Body Temperature (°C):</label>
-                                <input type="number" class="form-control" id="body_temperature" name="body_temperature" step="0.1" value="36.4" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="sleep_duration_hours">Sleep Duration (hours):</label>
-                                <input type="number" class="form-control" id="sleep_duration_hours" name="sleep_duration_hours" step="0.1" value="9" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="stress_level">Stress Level:</label>
-                                <input type="number" class="form-control" id="stress_level" name="stress_level" value="1" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="exercise_minutes">Exercise Minutes:</label>
-                                <input type="number" class="form-control" id="exercise_minutes" name="exercise_minutes" value="21" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="water_intake_ml">Water Intake (ml):</label>
-                                <input type="number" class="form-control" id="water_intake_ml" name="water_intake_ml" step="0.1" value="1061" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="caloric_intake_kcal">Caloric Intake (kcal):</label>
-                                <input type="number" class="form-control" id="caloric_intake_kcal" name="caloric_intake_kcal" value="1556" required>
-                            </div>
-                            <button type="submit" class="btn btn-dark btn-block">Sign Up</button>
-                        </form>
-                    </div>
-                </div>
+<body>
+    <form method="post" action="/signup">
+        <img src="pic.png" alt="Logo" class="logo">
+            <h3>‎ </h3>
+        <h1>Sign-up</h1>
+        <h3>‎ </h3>
+        <div class="form-group">
+            <div>
+                <input type="text" name="username" id="username" placeholder="Username" required>
+            </div>
+            <div>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+            </div>
+            <div>
+                <input type="date" name="last_period_date" id="last_period_date" placeholder="Last Period Date" required>
+            </div>
+            <div>
+                <input type="number" name="weight" id="weight" step="0.1" placeholder="Weight (kg)" required>
+            </div>
+            <div>
+                <input type="number" name="height" id="height" placeholder="Height (cm)" required>
+            </div>
+            <div>
+                <input type="text" name="blood_pressure" id="blood_pressure" placeholder="Blood Pressure" required>
+            </div>
+            <div>
+                <input type="number" name="heart_rate" id="heart_rate" placeholder="Heart Rate (bpm)" required>
+            </div>
+            <div>
+                <input type="number" name="body_temperature" id="body_temperature" step="0.1" placeholder="Body Temperature (°C)" required>
+            </div>
+            <div>
+                <input type="number" name="sleep_duration_hours" id="sleep_duration_hours" step="0.1" placeholder="Sleep Duration (hours)" required>
+            </div>
+            <div>
+                <input type="number" name="stress_level" id="stress_level" placeholder="Stress Level" required>
+            </div>
+            <div>
+                <input type="number" name="exercise_minutes" id="exercise_minutes" placeholder="Exercise Minutes" required>
+            </div>
+            <div>
+                <input type="number" name="caloric_intake_kcal" id="caloric_intake_kcal" placeholder="Caloric Intake (kcal)" required>
             </div>
         </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <input type="submit" value="Sign Up">
+    </form>
 </body>
 </html>
