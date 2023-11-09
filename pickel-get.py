@@ -101,9 +101,32 @@ else:
                 for i, row in df.iterrows():
                     menstrual_data.update_one({'_id': row['_id']}, {'$set': {'predicted_date': predicted_dates[i]}})
 
+                # Extract the 'last_period_date' and 'predicted_date' columns
+                actual_dates = df['last_period_date']
+                predicted_dates = predicted_dates
+
+                # Calculate the difference in days between predicted and actual dates
+                date_difference = (predicted_dates - actual_dates).dt.days
+
+                # Create a new DataFrame to hold actual and predicted dates
+                date_df = pd.DataFrame({'Actual Dates': actual_dates, 'Predicted Dates': predicted_dates,
+                                        'Date Difference (Days)': date_difference})
+
+                # Display the table of actual and predicted dates
+                print(date_df.to_string(index=False))
+
+                # Generate a histogram to visualize the date difference
+                plt.hist(date_difference, bins=20, color='lightblue', edgecolor='black')
+                plt.title('Difference between Predicted and Actual Dates')
+                plt.xlabel('Date Difference (Days)')
+                plt.ylabel('Frequency')
+                plt.grid(True)
+                plt.show()
+
             else:
                 print("Insufficient data for training.")
         else:
             print("No data found for the target variable.")
     else:
         print("No data found for features.")
+

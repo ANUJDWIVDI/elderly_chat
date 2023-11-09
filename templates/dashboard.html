@@ -164,11 +164,12 @@
             background-color: #45a049;
         }
     </style>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 </head>
 <body>
     <div class="header">
-        <img src="pic.png" alt="Logo" class="logo">
+        <img src="../static/pic.png" alt="Logo" class="logo">
         <div class="welcome-message">
             <h1>Welcome to Your Dashboard</h1>
         </div>
@@ -201,6 +202,16 @@
             <li>Predicted Date: <span id="countdown"></span></li>
         </ul>
     </div>
+<div class="container">
+    <h2>Chat with the Chatbot:</h2>
+    <div id="chat-container">
+        <div class="chat" id="chat">
+            <!-- Chat messages will be displayed here -->
+        </div>
+        <input type="text" id="user-input" placeholder="Type a message..." />
+        <button id="send-button">Send</button>
+    </div>
+</div>
 
     <div class="recipe-search-container">
         <h2>Recipe Search</h2>
@@ -333,6 +344,56 @@
                 });
             }
         }
-    </script>
+     // Function to initiate a conversation with the chatbot
+    function initiateChat() {
+        addChatMessage("Chatbot", "Hello! How can I assist you today?");
+    }
+
+    // Event listener for the "Send" button
+    const sendButton = document.getElementById("send-button");
+    sendButton.addEventListener("click", () => {
+        sendMessage();
+    });
+
+    // Function to send a user message and receive a chatbot response
+    function sendMessage() {
+        const userInput = document.getElementById("user-input");
+        const userMessage = userInput.value.trim();
+
+        if (userMessage !== "") {
+            addChatMessage("You", userMessage);
+            userInput.value = "";
+
+            // Make an AJAX request to Flask to get the chatbot's response
+            fetch("/chat", {
+                method: "POST",
+                body: JSON.stringify({ userMessage }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Display the chatbot's response
+                    addChatMessage("Chatbot", data.chatbotResponse);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("An error occurred while chatting with the chatbot.");
+                });
+        }
+    }
+
+    // Function to add a message to the chat interface
+    function addChatMessage(sender, message) {
+        const chat = document.getElementById("chat");
+        const messageDiv = document.createElement("div");
+        messageDiv.textContent = `${sender}: ${message}`;
+        chat.appendChild(messageDiv);
+    }
+
+    // Initialize the chat when the page loads
+    initiateChat();
+</script>
 </body>
 </html>

@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request
 from pymongo import MongoClient
 from flask import Flask, render_template, request, redirect, url_for
+from transformers import pipeline
+
+text_generation_pipe = pipeline("text-generation", model="Israr-dawar/psychology_chatbot")
 
 app = Flask(__name__)
 
@@ -100,6 +103,34 @@ def visualize():
     dark_mode = request.args.get('dark_mode', default='light')
 
     return render_template('visualize.html', data=data, dark_mode=dark_mode)
+
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    # Get the user's message from the request
+    user_message = request.get_json()["userMessage"]
+
+    # Define a positive message about women's mental health
+    positive_message = "It's important to prioritize and care for your mental health. Taking time for self-care, seeking support, and staying connected with loved ones can have a positive impact on women's mental health."
+
+    # Generate a chatbot response based on the user's message
+    chatbot_response = chatbot_pipeline(user_message)
+
+    # Combine the chatbot's response with the positive message
+    full_response = f"{positive_message}\nChatbot: {chatbot_response}"
+
+    # Return the combined response as JSON
+    return jsonify({"chatbotResponse": full_response})
+
+
+@app.route('/run_script')
+def run_script():
+    output = subprocess.check_output(['python', 'pickel-get.py'], universal_newlines=True)
+    return output
+
+@app.route('/download_model')
+def download_model():
+    return send_file('ann_model.pkl', as_attachment=True)
 
 if __name__ == '__main__':
     app.run(debug=True)
