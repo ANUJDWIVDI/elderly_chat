@@ -2,51 +2,78 @@
 <html>
 <head>
     <title>Sign-up Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
-    <h1>Sign-up</h1>
-    <form method="POST" action="/signup">
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username" value="Amaira" required>
+<body class="bg-dark">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h1 class="text-center text-dark">Sign-up</h1>
+                        <form method="POST" action="/signup">
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input type="text" class="form-control" id="username" name="username" value="Amaira" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" class="form-control" id="password" name="password" value="password1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_period_date">Last Period Date:</label>
+                                <input type="date" class="form-control" id="last_period_date" name="last_period_date" value="2023-11-05" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="weight">Weight (kg):</label>
+                                <input type="number" class="form-control" id="weight" name="weight" step="0.1" value="52.2" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="height">Height (cm):</label>
+                                <input type="number" class="form-control" id="height" name="height" value="169" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="blood_pressure">Blood Pressure:</label>
+                                <input type="text" class="form-control" id="blood_pressure" name="blood_pressure" value="113/70" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="heart_rate">Heart Rate (bpm):</label>
+                                <input type="number" class="form-control" id="heart_rate" name="heart_rate" value="71" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="body_temperature">Body Temperature (°C):</label>
+                                <input type="number" class="form-control" id="body_temperature" name="body_temperature" step="0.1" value="36.4" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sleep_duration_hours">Sleep Duration (hours):</label>
+                                <input type="number" class="form-control" id="sleep_duration_hours" name="sleep_duration_hours" step="0.1" value="9" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="stress_level">Stress Level:</label>
+                                <input type="number" class="form-control" id="stress_level" name="stress_level" value="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="exercise_minutes">Exercise Minutes:</label>
+                                <input type="number" class="form-control" id="exercise_minutes" name="exercise_minutes" value="21" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="water_intake_ml">Water Intake (ml):</label>
+                                <input type="number" class="form-control" id="water_intake_ml" name="water_intake_ml" step="0.1" value="1061" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="caloric_intake_kcal">Caloric Intake (kcal):</label>
+                                <input type="number" class="form-control" id="caloric_intake_kcal" name="caloric_intake_kcal" value="1556" required>
+                            </div>
+                            <button type="submit" class="btn btn-dark btn-block">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" value="password1" required>
-
-    <label for="last_period_date">Last Period Date:</label>
-    <input type="date" name="last_period_date" id="last_period_date" value="2023-11-05" required>
-
-    <label for="weight">Weight (kg):</label>
-    <input type="number" name="weight" id="weight" step="0.1" value="52.2" required>
-
-    <label for="height">Height (cm):</label>
-    <input type="number" name="height" id="height" value="169" required>
-
-    <label for="blood_pressure">Blood Pressure:</label>
-    <input type="text" name="blood_pressure" id="blood_pressure" value="113/70" required>
-
-    <label for="heart_rate">Heart Rate (bpm):</label>
-    <input type="number" name="heart_rate" id="heart_rate" value="71" required>
-
-    <label for="body_temperature">Body Temperature (°C):</label>
-    <input type="number" name="body_temperature" id="body_temperature" step="0.1" value="36.4" required>
-
-    <label for="sleep_duration_hours">Sleep Duration (hours):</label>
-    <input type="number" name="sleep_duration_hours" id="sleep_duration_hours" step="0.1" value="9" required>
-
-    <label for="stress_level">Stress Level:</label>
-    <input type="number" name="stress_level" id="stress_level" value="1" required>
-
-    <label for="exercise_minutes">Exercise Minutes:</label>
-    <input type="number" name="exercise_minutes" id="exercise_minutes" value="21" required>
-
-    <label for="water_intake_ml">Water Intake (ml):</label>
-    <input type="number" name="water_intake_ml" id="water_intake_ml" step="0.1" value="1061" required>
-
-    <label for="caloric_intake_kcal">Caloric Intake (kcal):</label>
-    <input type="number" name="caloric_intake_kcal" id="caloric_intake_kcal" value="1556" required>
-
-    <input type="submit" value="Sign Up">
-</form>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
