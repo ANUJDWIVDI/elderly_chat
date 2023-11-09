@@ -1,49 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Old Age Home Portal - Login</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Login</title>
 </head>
-
 <body>
-
-<div class="container mx-auto mt-24">
-    <div class="flex items-center justify-center">
-        <div class="w-full max-w-md">
-            <div class="card rounded-lg shadow-md bg-white">
-                <div class="card-header text-center p-4">
-                    <h2 class="text-2xl font-bold">Old Age Home Portal - Login</h2>
-                </div>
-
-                <div class="card-body p-4">
-                    <form action="/login" method="post">
-                        <div class="mb-4">
-                            <label for="old_age_home" class="form-label block mb-2">Select Old Age Home</label>
-                            <select name="old_age_home" id="old_age_home" class="form-control block w-full">
-                                <option value="1">Home of Serenity</option>
-                                <option value="2">Golden Years Haven</option>
-                                <option value="3">Peaceful Meadows</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="username" class="form-label block mb-2">Username</label>
-                            <input type="text" name="username" id="username" class="form-control block w-full" required>
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="password" class="form-label block mb-2">Password</label>
-                            <input type="password" name="password" id="password" class="form-control block w-full" required>
-                        </div>
-
-                        <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md">Login</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <h1>Login</h1>
+    <form method="POST" action="/login">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required><br><br>
+        <input type="submit" value="Login">
+    </form>
 </body>
 </html>
